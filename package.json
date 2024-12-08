@@ -1,0 +1,15 @@
+{
+  "name": "beanpal",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "husky": "^9.1.7"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "server": "cd server && yarn start",
+    "client": "cd client && yarn start",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\""
+  }
+}
