@@ -23,3 +23,7 @@ main button {
 main button:hover {
   background-color: #2681F2;
 }
+
+.websdk-body .meeting-app .meeting-client .meeting-client-inner #wc-content #wc-container-left .meeting-header .meeting-info-container .meeting-info-icon__icon-wrap {
+  display: none !important;
+}
