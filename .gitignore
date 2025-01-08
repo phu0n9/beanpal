@@ -33,3 +33,4 @@ yarn.lock
 /server/.env
 
 /.husky
+.codegpt

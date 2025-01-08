@@ -6,7 +6,8 @@ export const ZOOM_SETTINGS = {
 export const AWS_SETTINGS = {
     ACCESS_KEY: process.env.REACT_APP_AWS_ACCESS_KEY,
     SECRET_KEY: process.env.REACT_APP_AWS_SECRET_KEY,
-    REGION_NAME: process.env.REACT_APP_AWS_REGION_NAME
+    REGION_NAME: process.env.REACT_APP_AWS_REGION_NAME,
+    WEBSOCKET_URL: process.env.REACT_APP_AWS_WEBSOCKET_URL
 }
 
 export const OPENAI_SETTINGS = {
