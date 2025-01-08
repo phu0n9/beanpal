@@ -22,9 +22,10 @@ function App() {
   const ws = useRef(null);
 
   useEffect(() => {
+    if (!id) return
     ws.current = new WebSocket(`${WEBSOCKET_URL}?id=${id}`);
     ws.current.onopen = () => console.log("ws opened");
-
+    
     ws.current.onclose = () => console.log("ws closed");
 
     const wsCurrent = ws.current;
@@ -32,7 +33,7 @@ function App() {
     return () => {
       wsCurrent.close();
     };
-  }, [id]);
+  }, [id, WEBSOCKET_URL]);
 
   useEffect(() => {
     if (!ws.current) return;
@@ -45,14 +46,15 @@ function App() {
   }, []);
 
   const renderApp = () => {
+    if (!id || !ws.current) return <HomePage />
     const currentParticipant = participantList.filter((data) => data.id === id);
-    const activeParticipants = participantList.filter((data) => data.status != 'left' && data.id !== id).length > 0;
+    const activeParticipants = participantList.filter((data) => data.status !== 'left' && data.id !== id).length > 0;
 
-    if (currentParticipant.at(0).status == "left" || !id) return <HomePage />;
+    if (currentParticipant.at(0).status === "left") return <HomePage />;
 
     if (
-      currentParticipant.at(0).status == "connected" ||
-      currentParticipant.at(0).status == "joined"
+      currentParticipant.at(0).status === "connected" ||
+      currentParticipant.at(0).status === "joined"
     )
       if (activeParticipants) return <VideoCallPage />;
       else return <ChatBotPage />;

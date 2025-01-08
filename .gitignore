@@ -29,8 +29,8 @@ yarn.lock
 /server/yarn.lock
 /client/yarn.lock
 
-/client/.env
-/server/.env
+# /client/.env
+# /server/.env
 
 /.husky
 .codegpt
